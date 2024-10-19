@@ -13,7 +13,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://suxichuan.github.io/suxichuan/hudiBlog/2024/10/19/linux操作系统nginx/"/>
+    <link rel="canonical" href="https://suxichuan.github.io/hudiBlog/2024/10/19/linux操作系统nginx/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -21,21 +21,23 @@
         <meta name="description" content="Linux操作系统Nginx1、安装相关的依赖软件1yum install openssl-devel pcre-devel gcc -y  2、检验依赖软件1rpm -q openssl-devel pcre-devel gcc  3、创建目录12mkdir &#x2F;datamkdir &#x2F;data&#x2F;server &#x2F;data&#x2F;soft  4、创建用户1useradd www -s &#x2F;sbin&#x2F;nolog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux操作系统Nginx">
-<meta property="og:url" content="https://suxichuan.github.io/suxichuan/hudiBlog/2024/10/19/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FNginx/index.html">
+<meta property="og:url" content="https://suxichuan.github.io/hudiBlog/2024/10/19/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FNginx/index.html">
 <meta property="og:site_name" content="短巷与雨">
 <meta property="og:description" content="Linux操作系统Nginx1、安装相关的依赖软件1yum install openssl-devel pcre-devel gcc -y  2、检验依赖软件1rpm -q openssl-devel pcre-devel gcc  3、创建目录12mkdir &#x2F;datamkdir &#x2F;data&#x2F;server &#x2F;data&#x2F;soft  4、创建用户1useradd www -s &#x2F;sbin&#x2F;nolog">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-19T03:18:19.240Z">
 <meta property="article:modified_time" content="2024-10-19T02:00:31.490Z">
 <meta property="article:author" content="Hudi">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Nginx">
 <meta name="twitter:card" content="summary">
     
     
     <!--- Icon Part-->
-    <link rel="icon" type="image/png" href="/suxichuan/hudiBlog/images/favi.png" sizes="192x192">
-    <link rel="apple-touch-icon" sizes="180x180" href="/suxichuan/hudiBlog/images/favi.png">
+    <link rel="icon" type="image/png" href="/hudiBlog/images/favi.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/hudiBlog/images/favi.png">
     <meta name="theme-color" content="#A31F34">
-    <link rel="shortcut icon" href="/suxichuan/hudiBlog/images/favi.png">
+    <link rel="shortcut icon" href="/hudiBlog/images/favi.png">
     <!--- Page Info-->
     
     <title>
@@ -46,27 +48,27 @@
     </title>
 
     
-<link rel="stylesheet" href="/suxichuan/hudiBlog/fonts/Chillax/chillax.css">
+<link rel="stylesheet" href="/hudiBlog/fonts/Chillax/chillax.css">
 
 
     <!--- Inject Part-->
     
 
     
-<link rel="stylesheet" href="/suxichuan/hudiBlog/css/style.css">
+<link rel="stylesheet" href="/hudiBlog/css/style.css">
 
 
     
         
-<link rel="stylesheet" href="/suxichuan/hudiBlog/assets/build/styles.css">
+<link rel="stylesheet" href="/hudiBlog/assets/build/styles.css">
 
     
 
     
-<link rel="stylesheet" href="/suxichuan/hudiBlog/fonts/GeistMono/geist-mono.css">
+<link rel="stylesheet" href="/hudiBlog/fonts/GeistMono/geist-mono.css">
 
     
-<link rel="stylesheet" href="/suxichuan/hudiBlog/fonts/Geist/geist.css">
+<link rel="stylesheet" href="/hudiBlog/fonts/Geist/geist.css">
 
     <!--- Font Part-->
     
@@ -78,12 +80,12 @@
     
     
         
-<script src="/suxichuan/hudiBlog/js/libs/anime.min.js"></script>
+<script src="/hudiBlog/js/libs/anime.min.js"></script>
 
     
 
     <script id="hexo-configurations">
-    window.config = {"hostname":"suxichuan.github.io","root":"/suxichuan/hudiBlog/","language":"zh-CN","path":"search.xml"};
+    window.config = {"hostname":"suxichuan.github.io","root":"/hudiBlog/","language":"zh-CN","path":"search.xml"};
     window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":true,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":true,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"atom-one-light","dark":"monokai-sublime"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":true,"title":"推荐阅读","limit":5,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":true,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"Hi！朋友,别来无恙"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"短巷与雨","subtitle":{"text":["Loading..."],"hitokoto":{"enable":true,"show_author":true,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"center","links":{"github":"https://github.com/suxichuan","instagram":null,"zhihu":null,"twitter":null,"email":"71478355@qq.com","weibo":"https://weibo.com/u/5081430302","weixin":"71478355"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":true},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.7.1","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"About":"/about","Friends":"/links/","Github":"https://github.com/suxichuan"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":3,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"right","first_item":"info","announcement":"这个世界岁不完美，但我们任然可以治愈自己。","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Shuoshuo":{"path":"/shuoshuo","icon":"fa-shuoshuo fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/10/18 10:00:00"};
     window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
     window.data = {"masonry":true};
@@ -91,26 +93,26 @@
 
     <!--- Fontawesome Part-->
     
-<link rel="stylesheet" href="/suxichuan/hudiBlog/fontawesome/fontawesome.min.css">
+<link rel="stylesheet" href="/hudiBlog/fontawesome/fontawesome.min.css">
 
     
-<link rel="stylesheet" href="/suxichuan/hudiBlog/fontawesome/brands.min.css">
+<link rel="stylesheet" href="/hudiBlog/fontawesome/brands.min.css">
 
     
-<link rel="stylesheet" href="/suxichuan/hudiBlog/fontawesome/solid.min.css">
+<link rel="stylesheet" href="/hudiBlog/fontawesome/solid.min.css">
 
     
-<link rel="stylesheet" href="/suxichuan/hudiBlog/fontawesome/regular.min.css">
+<link rel="stylesheet" href="/hudiBlog/fontawesome/regular.min.css">
 
     
     
         
-<link rel="stylesheet" href="/suxichuan/hudiBlog/fontawesome/light.min.css">
+<link rel="stylesheet" href="/hudiBlog/fontawesome/light.min.css">
 
     
     
     
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/suxichuan/hudiBlog/atom.xml" title="短巷与雨" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/hudiBlog/atom.xml" title="短巷与雨" type="application/atom+xml">
 </head>
 
 
@@ -288,7 +290,7 @@
     <div class="navbar-content ">
         <div class="left">
             
-            <a class="logo-title" href="/suxichuan/hudiBlog/">
+            <a class="logo-title" href="/hudiBlog/">
                 
                 短巷与雨
                 
@@ -306,7 +308,7 @@
                             <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class=""
-                                   href="/suxichuan/hudiBlog/"
+                                   href="/hudiBlog/"
                                         >
                                     <i class="fa-regular fa-house fa-fw"></i>
                                     首页
@@ -323,7 +325,7 @@
                             <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class=""
-                                   href="/suxichuan/hudiBlog/archives"
+                                   href="/hudiBlog/archives"
                                         >
                                     <i class="fa-regular fa-archive fa-fw"></i>
                                     归档
@@ -340,7 +342,7 @@
                             <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class=""
-                                   href="/suxichuan/hudiBlog/categories"
+                                   href="/hudiBlog/categories"
                                         >
                                     <i class="fa-regular fa-folder fa-fw"></i>
                                     分类
@@ -369,13 +371,13 @@
                                     <ul class="sub-menu">
                                         
                                             <li>
-                                                <a href="/suxichuan/hudiBlog/about">
+                                                <a href="/hudiBlog/about">
                                                     关于
                                                 </a>
                                             </li>
                                         
                                             <li>
-                                                <a href="/suxichuan/hudiBlog/links/">
+                                                <a href="/hudiBlog/links/">
                                                     友情链接
                                                 </a>
                                             </li>
@@ -420,7 +422,7 @@
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/suxichuan/hudiBlog/"
+                           href="/hudiBlog/"
                         >
                             <span>
                                 首页
@@ -440,7 +442,7 @@
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/suxichuan/hudiBlog/archives"
+                           href="/hudiBlog/archives"
                         >
                             <span>
                                 归档
@@ -460,7 +462,7 @@
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/suxichuan/hudiBlog/categories"
+                           href="/hudiBlog/categories"
                         >
                             <span>
                                 分类
@@ -496,12 +498,12 @@
                                 
                                     <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
                                         <a class=" text-third-text-color text-xl"
-                                           href="/suxichuan/hudiBlog/about">关于</a>
+                                           href="/hudiBlog/about">关于</a>
                                     </div>
                                 
                                     <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
                                         <a class=" text-third-text-color text-xl"
-                                           href="/suxichuan/hudiBlog/links/">友情链接</a>
+                                           href="/hudiBlog/links/">友情链接</a>
                                     </div>
                                 
                                     <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
@@ -521,7 +523,7 @@
                     
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
-                           href="/suxichuan/hudiBlog/tags"
+                           href="/hudiBlog/tags"
                         >
                             <span>Tags</span>
                             <i class="fa-regular fa-tags fa-sm fa-fw"></i>
@@ -532,7 +534,7 @@
                     
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
-                           href="/suxichuan/hudiBlog/shuoshuo"
+                           href="/hudiBlog/shuoshuo"
                         >
                             <span>Shuoshuo</span>
                             <i class="fa-shuoshuo fa-folder fa-sm fa-fw"></i>
@@ -543,15 +545,15 @@
         </ul>
 
         <div class="statistics flex justify-around my-2.5">
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/suxichuan/hudiBlog/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/hudiBlog/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">23</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/suxichuan/hudiBlog/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/hudiBlog/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/suxichuan/hudiBlog/archives">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/hudiBlog/archives">
         <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">9</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
@@ -586,7 +588,7 @@
         
             <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
                 <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
-                    <img src="/suxichuan/hudiBlog/images/favi.png">
+                    <img src="/hudiBlog/images/favi.png">
                 </div>
                 <div class="info flex flex-col justify-between">
                     <div class="author flex items-center">
@@ -613,6 +615,37 @@
     
 
     
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/hudiBlog/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/hudiBlog/tags/Linux/">Linux</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/hudiBlog/tags/Nginx/">Nginx</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
@@ -736,6 +769,18 @@
         
 
         
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/hudiBlog/tags/Linux/">#Linux</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/hudiBlog/tags/Nginx/">#Nginx</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
 
         
   <div class="recommended-article px-2 sm:px-6 md:px-8">
@@ -743,19 +788,19 @@
     <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
      <i aria-hidden="true"></i><span>推荐阅读</span>
     </div>
-    <div class="recommended-article-group"><a class="recommended-article-item" href="/suxichuan/hudiBlog/2024/10/19/Linux权限管理/" title="Linux权限管理" rel="bookmark">
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/hudiBlog/2024/10/19/Linux权限管理/" title="Linux权限管理" rel="bookmark">
   <img src="/images/wallhaven-wqery6-light.webp" alt="Linux权限管理" class="!max-w-none">
   <span class="title">Linux权限管理</span>
-</a><a class="recommended-article-item" href="/suxichuan/hudiBlog/2024/10/19/Linux系统服务/" title="Linux系统服务" rel="bookmark">
+</a><a class="recommended-article-item" href="/hudiBlog/2024/10/19/Linux系统服务/" title="Linux系统服务" rel="bookmark">
   <img src="/images/wallhaven-wqery6-light.webp" alt="Linux系统服务" class="!max-w-none">
   <span class="title">Linux系统服务</span>
-</a><a class="recommended-article-item" href="/suxichuan/hudiBlog/2024/10/19/hello-world/" title="Hello World" rel="bookmark">
+</a><a class="recommended-article-item" href="/hudiBlog/2024/10/19/hello-world/" title="Hello World" rel="bookmark">
   <img src="/images/wallhaven-wqery6-light.webp" alt="Hello World" class="!max-w-none">
   <span class="title">Hello World</span>
-</a><a class="recommended-article-item" href="/suxichuan/hudiBlog/2024/10/19/flume/" title="Flume工具" rel="bookmark">
+</a><a class="recommended-article-item" href="/hudiBlog/2024/10/19/flume/" title="Flume工具" rel="bookmark">
   <img src="/images/wallhaven-wqery6-light.webp" alt="Flume工具" class="!max-w-none">
   <span class="title">Flume工具</span>
-</a><a class="recommended-article-item" href="/suxichuan/hudiBlog/2024/10/19/docker笔记/" title="BOSS直聘数据分析docker部署笔记" rel="bookmark">
+</a><a class="recommended-article-item" href="/hudiBlog/2024/10/19/docker笔记/" title="BOSS直聘数据分析docker部署笔记" rel="bookmark">
   <img src="/images/wallhaven-wqery6-light.webp" alt="BOSS直聘数据分析docker部署笔记" class="!max-w-none">
   <span class="title">BOSS直聘数据分析docker部署笔记</span>
 </a></div>
@@ -764,10 +809,10 @@
    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
      <i aria-hidden="true"></i><span>推荐阅读</span>
    </div>
-   <div class="recommended-article-group"><a class="recommended-article-item" href="/suxichuan/hudiBlog/2024/10/19/Linux权限管理/" title="Linux权限管理" rel="bookmark">
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/hudiBlog/2024/10/19/Linux权限管理/" title="Linux权限管理" rel="bookmark">
   <img src="/images/wallhaven-wqery6-light.webp" alt="Linux权限管理" class="!max-w-none">
   <span class="title">Linux权限管理</span>
-</a><a class="recommended-article-item" href="/suxichuan/hudiBlog/2024/10/19/Linux系统服务/" title="Linux系统服务" rel="bookmark">
+</a><a class="recommended-article-item" href="/hudiBlog/2024/10/19/Linux系统服务/" title="Linux系统服务" rel="bookmark">
   <img src="/images/wallhaven-wqery6-light.webp" alt="Linux系统服务" class="!max-w-none">
   <span class="title">Linux系统服务</span>
 </a></div>
@@ -780,7 +825,7 @@
                     <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="prev"
                         rel="prev"
-                        href="/suxichuan/hudiBlog/2024/10/19/Linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"
+                        href="/hudiBlog/2024/10/19/Linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"
                         >
                             <span class="left arrow-icon flex justify-center items-center">
                                 <i class="fa-solid fa-chevron-left"></i>
@@ -796,7 +841,7 @@
                     <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="next"
                         rel="next"
-                        href="/suxichuan/hudiBlog/2024/10/19/hello-world/"
+                        href="/hudiBlog/2024/10/19/hello-world/"
                         >
                             <span class="title flex justify-center items-center">
                                 <span class="post-nav-title-item">Hello World</span>
@@ -825,7 +870,7 @@
             
     <div id="waline"></div>
     <script type="module" data-swup-reload-script>
-      import { init } from '/suxichuan/hudiBlog/js/libs/waline.mjs';
+      import { init } from '/hudiBlog/js/libs/waline.mjs';
 
       function loadWaline() {
         init({
@@ -891,7 +936,7 @@
               <span>2024</span>
               -
             
-            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/suxichuan/hudiBlog/">Hudi</a>
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/hudiBlog/">Hudi</a>
         </div>
 
         
@@ -1050,17 +1095,17 @@
 
 
     
-<script src="/suxichuan/hudiBlog/js/libs/Swup.min.js"></script>
+<script src="/hudiBlog/js/libs/Swup.min.js"></script>
 
-<script src="/suxichuan/hudiBlog/js/libs/SwupSlideTheme.min.js"></script>
+<script src="/hudiBlog/js/libs/SwupSlideTheme.min.js"></script>
 
-<script src="/suxichuan/hudiBlog/js/libs/SwupScriptsPlugin.min.js"></script>
+<script src="/hudiBlog/js/libs/SwupScriptsPlugin.min.js"></script>
 
-<script src="/suxichuan/hudiBlog/js/libs/SwupProgressPlugin.min.js"></script>
+<script src="/hudiBlog/js/libs/SwupProgressPlugin.min.js"></script>
 
-<script src="/suxichuan/hudiBlog/js/libs/SwupScrollPlugin.min.js"></script>
+<script src="/hudiBlog/js/libs/SwupScrollPlugin.min.js"></script>
 
-<script src="/suxichuan/hudiBlog/js/libs/SwupPreloadPlugin.min.js"></script>
+<script src="/hudiBlog/js/libs/SwupPreloadPlugin.min.js"></script>
 
 <script>
     const swup = new Swup({
@@ -1087,57 +1132,57 @@
 
 
 
-<script src="/suxichuan/hudiBlog/js/tools/imageViewer.js" type="module"></script>
+<script src="/hudiBlog/js/tools/imageViewer.js" type="module"></script>
 
-<script src="/suxichuan/hudiBlog/js/utils.js" type="module"></script>
+<script src="/hudiBlog/js/utils.js" type="module"></script>
 
-<script src="/suxichuan/hudiBlog/js/main.js" type="module"></script>
+<script src="/hudiBlog/js/main.js" type="module"></script>
 
-<script src="/suxichuan/hudiBlog/js/layouts/navbarShrink.js" type="module"></script>
+<script src="/hudiBlog/js/layouts/navbarShrink.js" type="module"></script>
 
-<script src="/suxichuan/hudiBlog/js/tools/scrollTopBottom.js" type="module"></script>
+<script src="/hudiBlog/js/tools/scrollTopBottom.js" type="module"></script>
 
-<script src="/suxichuan/hudiBlog/js/tools/lightDarkSwitch.js" type="module"></script>
+<script src="/hudiBlog/js/tools/lightDarkSwitch.js" type="module"></script>
 
-<script src="/suxichuan/hudiBlog/js/layouts/categoryList.js" type="module"></script>
-
-
-
-    
-<script src="/suxichuan/hudiBlog/js/tools/localSearch.js" type="module"></script>
-
+<script src="/hudiBlog/js/layouts/categoryList.js" type="module"></script>
 
 
 
     
-<script src="/suxichuan/hudiBlog/js/tools/codeBlock.js" type="module"></script>
+<script src="/hudiBlog/js/tools/localSearch.js" type="module"></script>
 
 
 
 
     
-<script src="/suxichuan/hudiBlog/js/layouts/lazyload.js" type="module"></script>
+<script src="/hudiBlog/js/tools/codeBlock.js" type="module"></script>
 
 
 
 
     
-<script src="/suxichuan/hudiBlog/js/tools/runtime.js"></script>
+<script src="/hudiBlog/js/layouts/lazyload.js" type="module"></script>
+
+
+
 
     
-<script src="/suxichuan/hudiBlog/js/libs/odometer.min.js"></script>
+<script src="/hudiBlog/js/tools/runtime.js"></script>
 
     
-<link rel="stylesheet" href="/suxichuan/hudiBlog/assets/odometer-theme-minimal.css">
+<script src="/hudiBlog/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/hudiBlog/assets/odometer-theme-minimal.css">
 
 
 
 
   
-<script src="/suxichuan/hudiBlog/js/libs/Typed.min.js"></script>
+<script src="/hudiBlog/js/libs/Typed.min.js"></script>
 
   
-<script src="/suxichuan/hudiBlog/js/plugins/typed.js" type="module"></script>
+<script src="/hudiBlog/js/plugins/typed.js" type="module"></script>
 
 
 
@@ -1145,10 +1190,10 @@
 
 
     
-<script src="/suxichuan/hudiBlog/js/libs/minimasonry.min.js"></script>
+<script src="/hudiBlog/js/libs/minimasonry.min.js"></script>
 
     
-<script src="/suxichuan/hudiBlog/js/plugins/masonry.js" type="module"></script>
+<script src="/hudiBlog/js/plugins/masonry.js" type="module"></script>
 
 
 
@@ -1157,11 +1202,11 @@
 <div class="post-scripts" data-swup-reload-script>
     
         
-<script src="/suxichuan/hudiBlog/js/tools/tocToggle.js" type="module"></script>
+<script src="/hudiBlog/js/tools/tocToggle.js" type="module"></script>
 
-<script src="/suxichuan/hudiBlog/js/layouts/toc.js" type="module"></script>
+<script src="/hudiBlog/js/layouts/toc.js" type="module"></script>
 
-<script src="/suxichuan/hudiBlog/js/plugins/tabs.js" type="module"></script>
+<script src="/hudiBlog/js/plugins/tabs.js" type="module"></script>
 
     
 </div>

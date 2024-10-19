@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Linux操作系统Nginx</title>
-    <url>/suxichuan/hudiBlog/2024/10/19/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FNginx/</url>
+    <url>/hudiBlog/2024/10/19/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FNginx/</url>
     <content><![CDATA[<h4 id="Linux操作系统Nginx"><a href="#Linux操作系统Nginx" class="headerlink" title="Linux操作系统Nginx"></a>Linux操作系统Nginx</h4><h5 id="1、安装相关的依赖软件"><a href="#1、安装相关的依赖软件" class="headerlink" title="1、安装相关的依赖软件"></a>1、安装相关的依赖软件</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">yum install openssl-devel pcre-devel gcc -y</span><br></pre></td></tr></table></figure></div>
 
 <h5 id="2、检验依赖软件"><a href="#2、检验依赖软件" class="headerlink" title="2、检验依赖软件"></a>2、检验依赖软件</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">rpm -q openssl-devel pcre-devel gcc</span><br></pre></td></tr></table></figure></div>
@@ -61,10 +61,17 @@
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">[root@hecs-202792 logs]# awk &#x27;&#123;print $1&#125;&#x27; access.log | sort -r |uniq -c | wc -l</span><br><span class="line">343</span><br></pre></td></tr></table></figure></div>
 
 ]]></content>
+      <categories>
+        <category>中间件</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Nginx</tag>
+      </tags>
   </entry>
   <entry>
     <title>Linux权限管理</title>
-    <url>/suxichuan/hudiBlog/2024/10/19/Linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</url>
+    <url>/hudiBlog/2024/10/19/Linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<h3 id="Linux权限管理"><a href="#Linux权限管理" class="headerlink" title="Linux权限管理"></a>Linux权限管理</h3><h4 id="一、ACL权限"><a href="#一、ACL权限" class="headerlink" title="一、ACL权限"></a>一、ACL权限</h4><h5 id="1、ACL概述"><a href="#1、ACL概述" class="headerlink" title="1、ACL概述"></a>1、ACL概述</h5><p>ACL用于解决用户对文件身份不足的问题</p>
 <h5 id="2、开启ACL"><a href="#2、开启ACL" class="headerlink" title="2、开启ACL"></a><figure class="image-caption"><img  
                      lazyload
@@ -149,10 +156,17 @@
 <h5 id="3、例子"><a href="#3、例子" class="headerlink" title="3、例子"></a>3、例子</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">[root@hecs-202792 /]# chattr +i a.txt</span><br><span class="line">[root@hecs-202792 /]# rm -rf a.txt </span><br><span class="line">rm: cannot remove ‘a.txt’: Operation not permitted</span><br><span class="line">[root@hecs-202792 /]# mv a.txt b.txt</span><br><span class="line">mv: cannot move ‘a.txt’ to ‘b.txt’: Operation not permitted</span><br><span class="line"></span><br><span class="line">[root@hecs-202792 /]# chattr +i attr</span><br><span class="line">[root@hecs-202792 /]# cd attr/</span><br><span class="line">[root@hecs-202792 attr]# ls</span><br><span class="line">[root@hecs-202792 attr]# touch a.txt</span><br><span class="line">touch: cannot touch ‘a.txt’: Permission denied</span><br></pre></td></tr></table></figure></div>
 
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>权限</tag>
+      </tags>
   </entry>
   <entry>
     <title>Linux磁盘管理笔记</title>
-    <url>/suxichuan/hudiBlog/2024/10/19/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E7%AC%94%E8%AE%B0/</url>
+    <url>/hudiBlog/2024/10/19/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h4 id="Linux磁盘管理笔记"><a href="#Linux磁盘管理笔记" class="headerlink" title="Linux磁盘管理笔记"></a>Linux磁盘管理笔记</h4><h5 id="1、基本常识"><a href="#1、基本常识" class="headerlink" title="1、基本常识"></a>1、基本常识</h5><p>磁盘</p>
 <ul>
 <li>磁盘容量&#x3D;磁头数X柱面数X扇区数X每个扇区的大小</li>
@@ -337,10 +351,16 @@
 </tr>
 </tbody></table>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>磁盘管理</tag>
+      </tags>
   </entry>
   <entry>
     <title>Linux系统下进程的优先级</title>
-    <url>/suxichuan/hudiBlog/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</url>
+    <url>/hudiBlog/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</url>
     <content><![CDATA[<h3 id="Linux系统下进程的优先级"><a href="#Linux系统下进程的优先级" class="headerlink" title="Linux系统下进程的优先级"></a>Linux系统下进程的优先级</h3><p>​		Linux操作系统是一个多用户多任务的操作系统，处理机的分配是通过时间片轮转的方式进行的。当CPU的负载过高时，进程的优先级就会起作用。</p>
 <h5 id="1、查看进程的优先级"><a href="#1、查看进程的优先级" class="headerlink" title="1、查看进程的优先级"></a>1、查看进程的优先级</h5><p>PR 数值越小优先级越高</p>
 <p>NI 数值越小优先级越高，可以通过手动设置NI的数值，改变PR的数值。NI的范围是-20~19</p>
@@ -391,10 +411,17 @@
                       alt="image-20230516193520030"
                 ><figcaption>image-20230516193520030</figcaption></figure></p>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>进程</tag>
+        <tag>优先级</tag>
+      </tags>
   </entry>
   <entry>
     <title>Linux系统服务</title>
-    <url>/suxichuan/hudiBlog/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/</url>
+    <url>/hudiBlog/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<h4 id="Linux系统服务"><a href="#Linux系统服务" class="headerlink" title="Linux系统服务"></a>Linux系统服务</h4><h5 id="一、服务的简介与分类"><a href="#一、服务的简介与分类" class="headerlink" title="一、服务的简介与分类"></a>一、服务的简介与分类</h5><p><figure class="image-caption"><img  
                      lazyload
                      src="/images/loading.svg"
@@ -437,10 +464,17 @@
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">/usr/local/apache2/bin/apachectl start|stop|restart|…</span><br></pre></td></tr></table></figure></div>
 
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>服务</tag>
+      </tags>
   </entry>
   <entry>
     <title>BOSS直聘数据分析docker部署笔记</title>
-    <url>/suxichuan/hudiBlog/2024/10/19/docker%E7%AC%94%E8%AE%B0/</url>
+    <url>/hudiBlog/2024/10/19/docker%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[
   <div class="note-large default">
     <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
@@ -499,10 +533,15 @@
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -d --name bossdb -p 3306:3306  registry.cn-hangzhou.aliyuncs.com/sxh_docker_repo/sxh_repo:latest  </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">数据库程序启动后。用navcat连接数据库，创建bossinfo数据库，然后执行bossinfo.sql，在启动django程序</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">这里也可以运行docker官方的mysql:5.7数据库命令如下</span></span><br><span class="line">docker run -d -p 3306:3306 --privileged=true -v /var/mysql/log:/var/log/mysql -v /var/mysql/data:/var/lib/mysql -v /var/mysql/conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=123456  --name mysql mysql:5.7</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">MYSQL_ROOT_PASSWORD指定mysql登陆的密码，这里的密码要和settings.py文件中的对应</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">boss直聘程序docker运行</span></span><br><span class="line">docker run -d --name boss -p 8000:8000 -v /root/boss/bossdome/settings.py:/root/boss/bossdome/djangoProject1/settings.py registry.cn-hangzhou.aliyuncs.com/sxh_docker_repo/sxh_repo:1.0</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-v /root/boss/bossdome/settings.py:/root/boss/bossdome/djangoProject1/settings.py 是将主机的/root/boss/bossdome/settings.py去替换容器中/root/boss/bossdome/djangoProject1/settings.py文件</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-v 是挂载数据卷</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-p 是将本机的8000端口映射到docker容器中的8000端口</span></span><br></pre></td></tr></table></figure></div></li>
 </ol>
 ]]></content>
+      <tags>
+        <tag>数据分析</tag>
+        <tag>docker</tag>
+        <tag>镜像</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/suxichuan/hudiBlog/2024/10/19/hello-world/</url>
+    <url>/hudiBlog/2024/10/19/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
 
@@ -517,10 +556,13 @@
 
 <p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 ]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
   </entry>
   <entry>
     <title>Flume工具</title>
-    <url>/suxichuan/hudiBlog/2024/10/19/flume/</url>
+    <url>/hudiBlog/2024/10/19/flume/</url>
     <content><![CDATA[<h4 id="flume"><a href="#flume" class="headerlink" title="flume"></a>flume</h4><h5 id="1、flume概述："><a href="#1、flume概述：" class="headerlink" title="1、flume概述："></a>1、flume概述：</h5><ol>
 <li><p>定义：Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统。Flume基于流式架构，灵活简单。</p>
 </li>
@@ -730,10 +772,17 @@
 </li>
 </ol>
 ]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>大数据采集</tag>
+        <tag>flume</tag>
+      </tags>
   </entry>
   <entry>
     <title>Oracle笔记</title>
-    <url>/suxichuan/hudiBlog/2024/10/19/Oracle%E7%AC%94%E8%AE%B0/</url>
+    <url>/hudiBlog/2024/10/19/Oracle%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="PL-SQL-developer安装"><a href="#PL-SQL-developer安装" class="headerlink" title="PL&#x2F;SQL developer安装"></a>PL&#x2F;SQL developer安装</h2><p>1、安装PL&#x2F;SQL developer程序，安装目录不要出现中文。</p>
 <p>2、配置客户端路径：点击PL&#x2F;SQL developer界面的Configure-&gt;Preferences-&gt;oracle配置的connect属性配置。，和</p>
 <p>指定Oracle Home 路径：D:\BaiduNetdiskDownload\client\instantclient_12_1</p>
@@ -1174,5 +1223,21 @@
 <div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_owners_log</span><br><span class="line">(</span><br><span class="line">updatetime <span class="type">date</span>,</span><br><span class="line">ownerid number,</span><br><span class="line">oldname varchar2(<span class="number">30</span>),</span><br><span class="line">newname varchar2(<span class="number">30</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> replace <span class="keyword">trigger</span> tri_insert_owner</span><br><span class="line">after</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">of</span> name</span><br><span class="line"><span class="keyword">on</span> t_owners</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">each</span> <span class="type">row</span></span><br><span class="line"><span class="keyword">declare</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_owners_log <span class="keyword">values</span>(sysdate,:old.id,:old.name,:new.name);</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">update</span> t_owners <span class="keyword">set</span> name<span class="operator">=</span><span class="string">&#x27;lililili&#x27;</span> <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1004</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_owners_log;</span><br></pre></td></tr></table></figure></div>
 
 ]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>Oracle</tag>
+        <tag>关系型数据库</tag>
+        <tag>表</tag>
+        <tag>视图</tag>
+        <tag>表空间</tag>
+        <tag>序列</tag>
+        <tag>函数</tag>
+        <tag>索引</tag>
+        <tag>触发器</tag>
+        <tag>存储函数</tag>
+        <tag>存储过程</tag>
+      </tags>
   </entry>
 </search>
