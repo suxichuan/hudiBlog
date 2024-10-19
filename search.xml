@@ -1,77 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Linux操作系统Nginx</title>
-    <url>/2024/10/19/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FNginx/</url>
-    <content><![CDATA[<h4 id="Linux操作系统Nginx"><a href="#Linux操作系统Nginx" class="headerlink" title="Linux操作系统Nginx"></a>Linux操作系统Nginx</h4><h5 id="1、安装相关的依赖软件"><a href="#1、安装相关的依赖软件" class="headerlink" title="1、安装相关的依赖软件"></a>1、安装相关的依赖软件</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">yum install openssl-devel pcre-devel gcc -y</span><br></pre></td></tr></table></figure></div>
-
-<h5 id="2、检验依赖软件"><a href="#2、检验依赖软件" class="headerlink" title="2、检验依赖软件"></a>2、检验依赖软件</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">rpm -q openssl-devel pcre-devel gcc</span><br></pre></td></tr></table></figure></div>
-
-<h5 id="3、创建目录"><a href="#3、创建目录" class="headerlink" title="3、创建目录"></a>3、创建目录</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir /data</span><br><span class="line">mkdir /data/server /data/soft</span><br></pre></td></tr></table></figure></div>
-
-<h5 id="4、创建用户"><a href="#4、创建用户" class="headerlink" title="4、创建用户"></a>4、创建用户</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">useradd www -s /sbin/nologin -M</span><br></pre></td></tr></table></figure></div>
-
-<h5 id="5、上传源码包并解压"><a href="#5、上传源码包并解压" class="headerlink" title="5、上传源码包并解压"></a>5、上传源码包并解压</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用rz工具上传源码包nginx-1.8.1.tar.gz</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">安装rz工具</span></span><br><span class="line">yum install -y lrzsz</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">或执行</span></span><br><span class="line">rpm -qa lrzsz</span><br><span class="line"></span><br><span class="line">[root@hecs-202792 ~]# rpm -qa lrzsz</span><br><span class="line">lrzsz-0.12.20-36.el7.x86_64</span><br><span class="line"></span><br><span class="line">tar -zxvf nginx-1.8.1.tar.gz</span><br></pre></td></tr></table></figure></div>
-
-<h5 id="6、执行编译安装"><a href="#6、执行编译安装" class="headerlink" title="6、执行编译安装"></a>6、执行编译安装</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">cd nginx-1.8.1</span><br><span class="line">./configure --prefix=/data/server/nginx --user=www --group=www</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在编译时出现一下错误</span></span><br><span class="line">src/core/ngx_murmurhash.c: In function ‘ngx_murmur_hash2’:</span><br><span class="line">src/core/ngx_murmurhash.c:37:11: error: this statement may fall through [-Werror=implicit-fallthrough=]</span><br><span class="line">h ^= data[2] &lt;&lt; 16;</span><br><span class="line">^~~~~~~~~~~~~~</span><br><span class="line">src/core/ngx_murmurhash.c:38:5: note: here</span><br><span class="line">case 2:</span><br><span class="line">^~~~</span><br><span class="line">src/core/ngx_murmurhash.c:39:11: error: this statement may fall through [-Werror=implicit-fallthrough=]</span><br><span class="line">h ^= data[1] &lt;&lt; 8;</span><br><span class="line">^~~~~~~~~~~~~</span><br><span class="line">src/core/ngx_murmurhash.c:40:5: note: here</span><br><span class="line">case 1:</span><br><span class="line">^~~~</span><br><span class="line">cc1: all warnings being treated as errors</span><br><span class="line">make[1]: *** [objs/Makefile:473: objs/src/core/ngx_murmurhash.o] Error 1</span><br><span class="line">make[1]: Leaving directory ‘/root/nginx-1.10.1‘</span><br><span class="line">make: *** [Makefile:8: build] Error 2</span><br></pre></td></tr></table></figure></div>
-
-<p>解决方法</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">打开 nginx的安装目录/objs/Makefile</span></span><br><span class="line">cd nginx-1.8.1/objs/</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">修改Makefile文件去掉CFLAGS中的-Werror，再重新make</span></span><br></pre></td></tr></table></figure></div>
-
-<p>查看编译后的目录</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">ls /data/server/nginx</span><br></pre></td></tr></table></figure></div>
-
-<h5 id="7、启动Nginx"><a href="#7、启动Nginx" class="headerlink" title="7、启动Nginx"></a>7、启动Nginx</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">/data/server/nginx/sbin/nginx</span><br></pre></td></tr></table></figure></div>
-
-<h5 id="8、其他命令"><a href="#8、其他命令" class="headerlink" title="8、其他命令"></a>8、其他命令</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">启动nginx</span></span><br><span class="line">/data/server/nginx/sbin/nginx</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">关闭nginx</span></span><br><span class="line">/data/server/nginx/sbin/nginx -s stop</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">检查nginx</span></span><br><span class="line">/data/server/nginx/sbin/nginx -t</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">重载nginx（重启，执行此条命令时，Nginx必须是开启的，若是关闭的，会报错）</span></span><br><span class="line">/data/server/nginx/sbin/nginx -s reload</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">启动后查看Nginx进程是否启动成功</span></span><br><span class="line">netstat -tnulp | grep nginx</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">优雅关闭，在退出前完成已经接受的连接请求</span></span><br><span class="line">/data/server/nginx/sbin/nginx  -s quit</span><br></pre></td></tr></table></figure></div>
-
-<p>关闭防火墙</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">systemtcl stop firewalld.service</span><br><span class="line">systemctl disable firewalld.service</span><br></pre></td></tr></table></figure></div>
-
-<p>或者配置防火墙策略</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">firewalld-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line">firewalld-cmd --reload</span><br></pre></td></tr></table></figure></div>
-
-<h5 id="9、将nginx配置成系统服务"><a href="#9、将nginx配置成系统服务" class="headerlink" title="9、将nginx配置成系统服务"></a>9、将nginx配置成系统服务</h5><p>创建服务脚本</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/nginx.service</span><br></pre></td></tr></table></figure></div>
-
-<p>服务脚本内容</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=nginx - web server</span><br><span class="line">After=network.target remote-fs.target nss-lookup.target</span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">PIDFile=/data/server/nginx/logs/nginx.pid</span><br><span class="line">ExecStartPre=/data/server/nginx/sbin/nginx -t -c /data/server/nginx/conf/nginx.conf</span><br><span class="line">ExecStart=/data/server/nginx/sbin/nginx -c /data/server/nginx/conf/nginx.conf</span><br><span class="line">ExecReload=/data/server/nginx/sbin/nginx -s reload</span><br><span class="line">ExecStop=/data/server/nginx/sbin/nginx -s stop</span><br><span class="line">ExecQuit=/data/server/nginx/sbin/nginx -s quit</span><br><span class="line">PrivateTmp=true</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></div>
-
-<h5 id="10、配置文件"><a href="#10、配置文件" class="headerlink" title="10、配置文件"></a>10、配置文件</h5><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">worker_processes  1;</span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line">    sendfile        on;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>worker_processes 表示的是worker进程的数目</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">修改worker_processes 4</span></span><br><span class="line">[root@hecs-202792 conf]# ps -ef | grep nginx</span><br><span class="line">root     20538     1  0 11:57 ?        00:00:00 nginx: master process /data/server/nginx/sbin/nginx</span><br><span class="line">www      20539 20538  0 11:57 ?        00:00:00 nginx: worker process</span><br><span class="line">www      20540 20538  0 11:57 ?        00:00:00 nginx: worker process</span><br><span class="line">www      20541 20538  0 11:57 ?        00:00:00 nginx: worker process</span><br><span class="line">www      20542 20538  0 11:57 ?        00:00:00 nginx: worker process</span><br><span class="line">root     20552 19809  0 11:57 pts/0    00:00:00 grep --color=auto nginx</span><br></pre></td></tr></table></figure></div>
-
-<p>error_log表示Nginx系统服务出现的错误信息所落盘的文件</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">error_log  logs/error.log  notice; notice 日志级别</span></span><br></pre></td></tr></table></figure></div>
-
-<p>pid表示Nginx进程的id</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">pid        logs/nginx.pid;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>access_log nginx的日志，可以对nginx的日志进行配置</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash">remote_addr <span class="comment">#客户端远程访问地址</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">remote_user  <span class="comment">#客户端用户名称</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">time_local <span class="comment">#访问的时间</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">request <span class="comment">#请求的URI和HTTP协议   &quot;GET /test/nginx/proxy HTTP/1.1&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">http_host <span class="comment">#请求地址，即浏览器中你输入的地址（IP或域名） 10.1.7.33</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">status    <span class="comment">#HTTP请求状态    200</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">upstream_status   <span class="comment">#upstream状态  200</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">body_bytes_sent   <span class="comment">#发送给客户端文件内容大小    38</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">http_referer  <span class="comment">#url跳转来源 -</span></span> </span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">http_user_agent   <span class="comment">#用户终端浏览器等信息  &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">http_cookie	<span class="comment">#用户cookie信息  &quot;grafana_session=73d13d456cb4363f8a48f5501348669e&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">ssl_protocol  <span class="comment">#SSL协议版本 TLSv1</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">ssl_cipher    <span class="comment">#交换数据中的算法    RC4-SHA</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">upstream_addr <span class="comment">#后台upstream的地址，即真正提供服务的主机地址  &quot;10.1.7.33:8102&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">request_time  <span class="comment">#整个请求的总时间    0.012</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">upstream_response_time    <span class="comment">#请求过程中，upstream响应时间  0.012</span></span></span><br></pre></td></tr></table></figure></div>
-
-<p>PV统计</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">[root@hecs-202792 logs]# awk &#x27;&#123;print $6&#125;&#x27; access.log | wc -l</span><br><span class="line">949</span><br></pre></td></tr></table></figure></div>
-
-<p>UV统计</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">[root@hecs-202792 logs]# awk &#x27;&#123;print $13&#125;&#x27; access.log | sort -r |uniq -c |wc -l</span><br><span class="line">21</span><br></pre></td></tr></table></figure></div>
-
-<p>独立IP统计</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">[root@hecs-202792 logs]# awk &#x27;&#123;print $1&#125;&#x27; access.log | sort -r |uniq -c | wc -l</span><br><span class="line">343</span><br></pre></td></tr></table></figure></div>
-
-]]></content>
-      <categories>
-        <category>中间件</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux权限管理</title>
-    <url>/2024/10/19/Linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</url>
+    <url>/suxichuan/hudiBlog/2024/10/19/Linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<h3 id="Linux权限管理"><a href="#Linux权限管理" class="headerlink" title="Linux权限管理"></a>Linux权限管理</h3><h4 id="一、ACL权限"><a href="#一、ACL权限" class="headerlink" title="一、ACL权限"></a>一、ACL权限</h4><h5 id="1、ACL概述"><a href="#1、ACL概述" class="headerlink" title="1、ACL概述"></a>1、ACL概述</h5><p>ACL用于解决用户对文件身份不足的问题</p>
 <h5 id="2、开启ACL"><a href="#2、开启ACL" class="headerlink" title="2、开启ACL"></a><figure class="image-caption"><img  
                      lazyload
@@ -165,8 +96,77 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux操作系统Nginx</title>
+    <url>/suxichuan/hudiBlog/2024/10/19/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FNginx/</url>
+    <content><![CDATA[<h4 id="Linux操作系统Nginx"><a href="#Linux操作系统Nginx" class="headerlink" title="Linux操作系统Nginx"></a>Linux操作系统Nginx</h4><h5 id="1、安装相关的依赖软件"><a href="#1、安装相关的依赖软件" class="headerlink" title="1、安装相关的依赖软件"></a>1、安装相关的依赖软件</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">yum install openssl-devel pcre-devel gcc -y</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="2、检验依赖软件"><a href="#2、检验依赖软件" class="headerlink" title="2、检验依赖软件"></a>2、检验依赖软件</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">rpm -q openssl-devel pcre-devel gcc</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="3、创建目录"><a href="#3、创建目录" class="headerlink" title="3、创建目录"></a>3、创建目录</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir /data</span><br><span class="line">mkdir /data/server /data/soft</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="4、创建用户"><a href="#4、创建用户" class="headerlink" title="4、创建用户"></a>4、创建用户</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">useradd www -s /sbin/nologin -M</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="5、上传源码包并解压"><a href="#5、上传源码包并解压" class="headerlink" title="5、上传源码包并解压"></a>5、上传源码包并解压</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用rz工具上传源码包nginx-1.8.1.tar.gz</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">安装rz工具</span></span><br><span class="line">yum install -y lrzsz</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">或执行</span></span><br><span class="line">rpm -qa lrzsz</span><br><span class="line"></span><br><span class="line">[root@hecs-202792 ~]# rpm -qa lrzsz</span><br><span class="line">lrzsz-0.12.20-36.el7.x86_64</span><br><span class="line"></span><br><span class="line">tar -zxvf nginx-1.8.1.tar.gz</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="6、执行编译安装"><a href="#6、执行编译安装" class="headerlink" title="6、执行编译安装"></a>6、执行编译安装</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">cd nginx-1.8.1</span><br><span class="line">./configure --prefix=/data/server/nginx --user=www --group=www</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在编译时出现一下错误</span></span><br><span class="line">src/core/ngx_murmurhash.c: In function ‘ngx_murmur_hash2’:</span><br><span class="line">src/core/ngx_murmurhash.c:37:11: error: this statement may fall through [-Werror=implicit-fallthrough=]</span><br><span class="line">h ^= data[2] &lt;&lt; 16;</span><br><span class="line">^~~~~~~~~~~~~~</span><br><span class="line">src/core/ngx_murmurhash.c:38:5: note: here</span><br><span class="line">case 2:</span><br><span class="line">^~~~</span><br><span class="line">src/core/ngx_murmurhash.c:39:11: error: this statement may fall through [-Werror=implicit-fallthrough=]</span><br><span class="line">h ^= data[1] &lt;&lt; 8;</span><br><span class="line">^~~~~~~~~~~~~</span><br><span class="line">src/core/ngx_murmurhash.c:40:5: note: here</span><br><span class="line">case 1:</span><br><span class="line">^~~~</span><br><span class="line">cc1: all warnings being treated as errors</span><br><span class="line">make[1]: *** [objs/Makefile:473: objs/src/core/ngx_murmurhash.o] Error 1</span><br><span class="line">make[1]: Leaving directory ‘/root/nginx-1.10.1‘</span><br><span class="line">make: *** [Makefile:8: build] Error 2</span><br></pre></td></tr></table></figure></div>
+
+<p>解决方法</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">打开 nginx的安装目录/objs/Makefile</span></span><br><span class="line">cd nginx-1.8.1/objs/</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">修改Makefile文件去掉CFLAGS中的-Werror，再重新make</span></span><br></pre></td></tr></table></figure></div>
+
+<p>查看编译后的目录</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">ls /data/server/nginx</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="7、启动Nginx"><a href="#7、启动Nginx" class="headerlink" title="7、启动Nginx"></a>7、启动Nginx</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">/data/server/nginx/sbin/nginx</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="8、其他命令"><a href="#8、其他命令" class="headerlink" title="8、其他命令"></a>8、其他命令</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">启动nginx</span></span><br><span class="line">/data/server/nginx/sbin/nginx</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">关闭nginx</span></span><br><span class="line">/data/server/nginx/sbin/nginx -s stop</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">检查nginx</span></span><br><span class="line">/data/server/nginx/sbin/nginx -t</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">重载nginx（重启，执行此条命令时，Nginx必须是开启的，若是关闭的，会报错）</span></span><br><span class="line">/data/server/nginx/sbin/nginx -s reload</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">启动后查看Nginx进程是否启动成功</span></span><br><span class="line">netstat -tnulp | grep nginx</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">优雅关闭，在退出前完成已经接受的连接请求</span></span><br><span class="line">/data/server/nginx/sbin/nginx  -s quit</span><br></pre></td></tr></table></figure></div>
+
+<p>关闭防火墙</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">systemtcl stop firewalld.service</span><br><span class="line">systemctl disable firewalld.service</span><br></pre></td></tr></table></figure></div>
+
+<p>或者配置防火墙策略</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">firewalld-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line">firewalld-cmd --reload</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="9、将nginx配置成系统服务"><a href="#9、将nginx配置成系统服务" class="headerlink" title="9、将nginx配置成系统服务"></a>9、将nginx配置成系统服务</h5><p>创建服务脚本</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/nginx.service</span><br></pre></td></tr></table></figure></div>
+
+<p>服务脚本内容</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=nginx - web server</span><br><span class="line">After=network.target remote-fs.target nss-lookup.target</span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">PIDFile=/data/server/nginx/logs/nginx.pid</span><br><span class="line">ExecStartPre=/data/server/nginx/sbin/nginx -t -c /data/server/nginx/conf/nginx.conf</span><br><span class="line">ExecStart=/data/server/nginx/sbin/nginx -c /data/server/nginx/conf/nginx.conf</span><br><span class="line">ExecReload=/data/server/nginx/sbin/nginx -s reload</span><br><span class="line">ExecStop=/data/server/nginx/sbin/nginx -s stop</span><br><span class="line">ExecQuit=/data/server/nginx/sbin/nginx -s quit</span><br><span class="line">PrivateTmp=true</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="10、配置文件"><a href="#10、配置文件" class="headerlink" title="10、配置文件"></a>10、配置文件</h5><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">worker_processes  1;</span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line">    sendfile        on;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>worker_processes 表示的是worker进程的数目</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">修改worker_processes 4</span></span><br><span class="line">[root@hecs-202792 conf]# ps -ef | grep nginx</span><br><span class="line">root     20538     1  0 11:57 ?        00:00:00 nginx: master process /data/server/nginx/sbin/nginx</span><br><span class="line">www      20539 20538  0 11:57 ?        00:00:00 nginx: worker process</span><br><span class="line">www      20540 20538  0 11:57 ?        00:00:00 nginx: worker process</span><br><span class="line">www      20541 20538  0 11:57 ?        00:00:00 nginx: worker process</span><br><span class="line">www      20542 20538  0 11:57 ?        00:00:00 nginx: worker process</span><br><span class="line">root     20552 19809  0 11:57 pts/0    00:00:00 grep --color=auto nginx</span><br></pre></td></tr></table></figure></div>
+
+<p>error_log表示Nginx系统服务出现的错误信息所落盘的文件</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">error_log  logs/error.log  notice; notice 日志级别</span></span><br></pre></td></tr></table></figure></div>
+
+<p>pid表示Nginx进程的id</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">pid        logs/nginx.pid;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>access_log nginx的日志，可以对nginx的日志进行配置</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash">remote_addr <span class="comment">#客户端远程访问地址</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">remote_user  <span class="comment">#客户端用户名称</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">time_local <span class="comment">#访问的时间</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">request <span class="comment">#请求的URI和HTTP协议   &quot;GET /test/nginx/proxy HTTP/1.1&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">http_host <span class="comment">#请求地址，即浏览器中你输入的地址（IP或域名） 10.1.7.33</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">status    <span class="comment">#HTTP请求状态    200</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">upstream_status   <span class="comment">#upstream状态  200</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">body_bytes_sent   <span class="comment">#发送给客户端文件内容大小    38</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">http_referer  <span class="comment">#url跳转来源 -</span></span> </span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">http_user_agent   <span class="comment">#用户终端浏览器等信息  &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">http_cookie	<span class="comment">#用户cookie信息  &quot;grafana_session=73d13d456cb4363f8a48f5501348669e&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">ssl_protocol  <span class="comment">#SSL协议版本 TLSv1</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">ssl_cipher    <span class="comment">#交换数据中的算法    RC4-SHA</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">upstream_addr <span class="comment">#后台upstream的地址，即真正提供服务的主机地址  &quot;10.1.7.33:8102&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">request_time  <span class="comment">#整个请求的总时间    0.012</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">upstream_response_time    <span class="comment">#请求过程中，upstream响应时间  0.012</span></span></span><br></pre></td></tr></table></figure></div>
+
+<p>PV统计</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">[root@hecs-202792 logs]# awk &#x27;&#123;print $6&#125;&#x27; access.log | wc -l</span><br><span class="line">949</span><br></pre></td></tr></table></figure></div>
+
+<p>UV统计</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">[root@hecs-202792 logs]# awk &#x27;&#123;print $13&#125;&#x27; access.log | sort -r |uniq -c |wc -l</span><br><span class="line">21</span><br></pre></td></tr></table></figure></div>
+
+<p>独立IP统计</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">[root@hecs-202792 logs]# awk &#x27;&#123;print $1&#125;&#x27; access.log | sort -r |uniq -c | wc -l</span><br><span class="line">343</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>中间件</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux系统下进程的优先级</title>
-    <url>/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</url>
+    <url>/suxichuan/hudiBlog/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</url>
     <content><![CDATA[<h3 id="Linux系统下进程的优先级"><a href="#Linux系统下进程的优先级" class="headerlink" title="Linux系统下进程的优先级"></a>Linux系统下进程的优先级</h3><p>​		Linux操作系统是一个多用户多任务的操作系统，处理机的分配是通过时间片轮转的方式进行的。当CPU的负载过高时，进程的优先级就会起作用。</p>
 <h5 id="1、查看进程的优先级"><a href="#1、查看进程的优先级" class="headerlink" title="1、查看进程的优先级"></a>1、查看进程的优先级</h5><p>PR 数值越小优先级越高</p>
 <p>NI 数值越小优先级越高，可以通过手动设置NI的数值，改变PR的数值。NI的范围是-20~19</p>
@@ -227,7 +227,7 @@
   </entry>
   <entry>
     <title>Linux磁盘管理笔记</title>
-    <url>/2024/10/19/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E7%AC%94%E8%AE%B0/</url>
+    <url>/suxichuan/hudiBlog/2024/10/19/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h4 id="Linux磁盘管理笔记"><a href="#Linux磁盘管理笔记" class="headerlink" title="Linux磁盘管理笔记"></a>Linux磁盘管理笔记</h4><h5 id="1、基本常识"><a href="#1、基本常识" class="headerlink" title="1、基本常识"></a>1、基本常识</h5><p>磁盘</p>
 <ul>
 <li>磁盘容量&#x3D;磁头数X柱面数X扇区数X每个扇区的大小</li>
@@ -421,7 +421,7 @@
   </entry>
   <entry>
     <title>Linux系统服务</title>
-    <url>/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/</url>
+    <url>/suxichuan/hudiBlog/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<h4 id="Linux系统服务"><a href="#Linux系统服务" class="headerlink" title="Linux系统服务"></a>Linux系统服务</h4><h5 id="一、服务的简介与分类"><a href="#一、服务的简介与分类" class="headerlink" title="一、服务的简介与分类"></a>一、服务的简介与分类</h5><p><figure class="image-caption"><img  
                      lazyload
                      src="/images/loading.svg"
@@ -474,7 +474,7 @@
   </entry>
   <entry>
     <title>BOSS直聘数据分析docker部署笔记</title>
-    <url>/2024/10/19/docker%E7%AC%94%E8%AE%B0/</url>
+    <url>/suxichuan/hudiBlog/2024/10/19/docker%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[
   <div class="note-large default">
     <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
@@ -541,8 +541,8 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2024/10/19/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
+    <url>/suxichuan/hudiBlog/2024/10/19/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
 
 <p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
@@ -562,7 +562,7 @@
   </entry>
   <entry>
     <title>Flume工具</title>
-    <url>/2024/10/19/flume/</url>
+    <url>/suxichuan/hudiBlog/2024/10/19/flume/</url>
     <content><![CDATA[<h4 id="flume"><a href="#flume" class="headerlink" title="flume"></a>flume</h4><h5 id="1、flume概述："><a href="#1、flume概述：" class="headerlink" title="1、flume概述："></a>1、flume概述：</h5><ol>
 <li><p>定义：Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统。Flume基于流式架构，灵活简单。</p>
 </li>
@@ -782,7 +782,7 @@
   </entry>
   <entry>
     <title>Oracle笔记</title>
-    <url>/2024/10/19/Oracle%E7%AC%94%E8%AE%B0/</url>
+    <url>/suxichuan/hudiBlog/2024/10/19/Oracle%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="PL-SQL-developer安装"><a href="#PL-SQL-developer安装" class="headerlink" title="PL&#x2F;SQL developer安装"></a>PL&#x2F;SQL developer安装</h2><p>1、安装PL&#x2F;SQL developer程序，安装目录不要出现中文。</p>
 <p>2、配置客户端路径：点击PL&#x2F;SQL developer界面的Configure-&gt;Preferences-&gt;oracle配置的connect属性配置。，和</p>
 <p>指定Oracle Home 路径：D:\BaiduNetdiskDownload\client\instantclient_12_1</p>
