@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Linux操作系统Nginx</title>
-    <url>/hudiBlog/2024/10/19/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FNginx/</url>
+    <url>/2024/10/19/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FNginx/</url>
     <content><![CDATA[<h4 id="Linux操作系统Nginx"><a href="#Linux操作系统Nginx" class="headerlink" title="Linux操作系统Nginx"></a>Linux操作系统Nginx</h4><h5 id="1、安装相关的依赖软件"><a href="#1、安装相关的依赖软件" class="headerlink" title="1、安装相关的依赖软件"></a>1、安装相关的依赖软件</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">yum install openssl-devel pcre-devel gcc -y</span><br></pre></td></tr></table></figure></div>
 
 <h5 id="2、检验依赖软件"><a href="#2、检验依赖软件" class="headerlink" title="2、检验依赖软件"></a>2、检验依赖软件</h5><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">rpm -q openssl-devel pcre-devel gcc</span><br></pre></td></tr></table></figure></div>
@@ -71,7 +71,7 @@
   </entry>
   <entry>
     <title>Linux权限管理</title>
-    <url>/hudiBlog/2024/10/19/Linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</url>
+    <url>/2024/10/19/Linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<h3 id="Linux权限管理"><a href="#Linux权限管理" class="headerlink" title="Linux权限管理"></a>Linux权限管理</h3><h4 id="一、ACL权限"><a href="#一、ACL权限" class="headerlink" title="一、ACL权限"></a>一、ACL权限</h4><h5 id="1、ACL概述"><a href="#1、ACL概述" class="headerlink" title="1、ACL概述"></a>1、ACL概述</h5><p>ACL用于解决用户对文件身份不足的问题</p>
 <h5 id="2、开启ACL"><a href="#2、开启ACL" class="headerlink" title="2、开启ACL"></a><figure class="image-caption"><img  
                      lazyload
@@ -165,69 +165,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux系统下进程的优先级</title>
-    <url>/hudiBlog/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</url>
-    <content><![CDATA[<h3 id="Linux系统下进程的优先级"><a href="#Linux系统下进程的优先级" class="headerlink" title="Linux系统下进程的优先级"></a>Linux系统下进程的优先级</h3><p>​		Linux操作系统是一个多用户多任务的操作系统，处理机的分配是通过时间片轮转的方式进行的。当CPU的负载过高时，进程的优先级就会起作用。</p>
-<h5 id="1、查看进程的优先级"><a href="#1、查看进程的优先级" class="headerlink" title="1、查看进程的优先级"></a>1、查看进程的优先级</h5><p>PR 数值越小优先级越高</p>
-<p>NI 数值越小优先级越高，可以通过手动设置NI的数值，改变PR的数值。NI的范围是-20~19</p>
-<p>使用top 命令查看进程的优先级</p>
-<p><figure class="image-caption"><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516181620532.png"
-                      alt="image-20230516181620532"
-                ><figcaption>image-20230516181620532</figcaption></figure></p>
-<h5 id="2、调整进程的优先级"><a href="#2、调整进程的优先级" class="headerlink" title="2、调整进程的优先级"></a>2、调整进程的优先级</h5><h6 id="①可以使用一下命令查看进程的PID值"><a href="#①可以使用一下命令查看进程的PID值" class="headerlink" title="①可以使用一下命令查看进程的PID值"></a>①可以使用一下命令查看进程的PID值</h6><div class="highlight-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ps</span> <span class="literal">-ef</span> </span><br><span class="line"><span class="built_in">ps</span> aux </span><br><span class="line">top <span class="literal">-bn</span> <span class="number">1</span></span><br></pre></td></tr></table></figure></div>
-
-<h6 id="②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值"><a href="#②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值" class="headerlink" title="②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值"></a>②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值</h6><p><figure class="image-caption"><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516182533084.png"
-                      alt="image-20230516182533084"
-                ><figcaption>image-20230516182533084</figcaption></figure></p>
-<p><figure class="image-caption"><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516182913127.png"
-                      alt="image-20230516182913127"
-                ><figcaption>image-20230516182913127</figcaption></figure></p>
-<p><figure class="image-caption"><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516182947261.png"
-                      alt="image-20230516182947261"
-                ><figcaption>image-20230516182947261</figcaption></figure></p>
-<h5 id="3、使用renice命令设置进程的优先级"><a href="#3、使用renice命令设置进程的优先级" class="headerlink" title="3、使用renice命令设置进程的优先级"></a>3、使用renice命令设置进程的优先级</h5><div class="highlight-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line">语法：renice <span class="built_in">NI</span>优先级值 PID</span><br></pre></td></tr></table></figure></div>
-
-<p><figure class="image-caption"><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516193023131.png"
-                      alt="image-20230516193023131"
-                ><figcaption>image-20230516193023131</figcaption></figure></p>
-<h5 id="4、使用nice命令来启动程序并设置进程测优先级"><a href="#4、使用nice命令来启动程序并设置进程测优先级" class="headerlink" title="4、使用nice命令来启动程序并设置进程测优先级"></a>4、使用nice命令来启动程序并设置进程测优先级</h5><div class="highlight-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line">语法：nice <span class="built_in">NI</span>优先级值 进程名称</span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>nice命令只能调整没有运行的程序优先级</p>
-</blockquote>
-<p><figure class="image-caption"><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516193520030.png"
-                      alt="image-20230516193520030"
-                ><figcaption>image-20230516193520030</figcaption></figure></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>进程</tag>
-        <tag>优先级</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux磁盘管理笔记</title>
-    <url>/hudiBlog/2024/10/19/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E7%AC%94%E8%AE%B0/</url>
+    <url>/2024/10/19/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h4 id="Linux磁盘管理笔记"><a href="#Linux磁盘管理笔记" class="headerlink" title="Linux磁盘管理笔记"></a>Linux磁盘管理笔记</h4><h5 id="1、基本常识"><a href="#1、基本常识" class="headerlink" title="1、基本常识"></a>1、基本常识</h5><p>磁盘</p>
 <ul>
 <li>磁盘容量&#x3D;磁头数X柱面数X扇区数X每个扇区的大小</li>
@@ -420,8 +359,69 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux系统下进程的优先级</title>
+    <url>/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</url>
+    <content><![CDATA[<h3 id="Linux系统下进程的优先级"><a href="#Linux系统下进程的优先级" class="headerlink" title="Linux系统下进程的优先级"></a>Linux系统下进程的优先级</h3><p>​		Linux操作系统是一个多用户多任务的操作系统，处理机的分配是通过时间片轮转的方式进行的。当CPU的负载过高时，进程的优先级就会起作用。</p>
+<h5 id="1、查看进程的优先级"><a href="#1、查看进程的优先级" class="headerlink" title="1、查看进程的优先级"></a>1、查看进程的优先级</h5><p>PR 数值越小优先级越高</p>
+<p>NI 数值越小优先级越高，可以通过手动设置NI的数值，改变PR的数值。NI的范围是-20~19</p>
+<p>使用top 命令查看进程的优先级</p>
+<p><figure class="image-caption"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516181620532.png"
+                      alt="image-20230516181620532"
+                ><figcaption>image-20230516181620532</figcaption></figure></p>
+<h5 id="2、调整进程的优先级"><a href="#2、调整进程的优先级" class="headerlink" title="2、调整进程的优先级"></a>2、调整进程的优先级</h5><h6 id="①可以使用一下命令查看进程的PID值"><a href="#①可以使用一下命令查看进程的PID值" class="headerlink" title="①可以使用一下命令查看进程的PID值"></a>①可以使用一下命令查看进程的PID值</h6><div class="highlight-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ps</span> <span class="literal">-ef</span> </span><br><span class="line"><span class="built_in">ps</span> aux </span><br><span class="line">top <span class="literal">-bn</span> <span class="number">1</span></span><br></pre></td></tr></table></figure></div>
+
+<h6 id="②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值"><a href="#②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值" class="headerlink" title="②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值"></a>②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值</h6><p><figure class="image-caption"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516182533084.png"
+                      alt="image-20230516182533084"
+                ><figcaption>image-20230516182533084</figcaption></figure></p>
+<p><figure class="image-caption"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516182913127.png"
+                      alt="image-20230516182913127"
+                ><figcaption>image-20230516182913127</figcaption></figure></p>
+<p><figure class="image-caption"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516182947261.png"
+                      alt="image-20230516182947261"
+                ><figcaption>image-20230516182947261</figcaption></figure></p>
+<h5 id="3、使用renice命令设置进程的优先级"><a href="#3、使用renice命令设置进程的优先级" class="headerlink" title="3、使用renice命令设置进程的优先级"></a>3、使用renice命令设置进程的优先级</h5><div class="highlight-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line">语法：renice <span class="built_in">NI</span>优先级值 PID</span><br></pre></td></tr></table></figure></div>
+
+<p><figure class="image-caption"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516193023131.png"
+                      alt="image-20230516193023131"
+                ><figcaption>image-20230516193023131</figcaption></figure></p>
+<h5 id="4、使用nice命令来启动程序并设置进程测优先级"><a href="#4、使用nice命令来启动程序并设置进程测优先级" class="headerlink" title="4、使用nice命令来启动程序并设置进程测优先级"></a>4、使用nice命令来启动程序并设置进程测优先级</h5><div class="highlight-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line">语法：nice <span class="built_in">NI</span>优先级值 进程名称</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>nice命令只能调整没有运行的程序优先级</p>
+</blockquote>
+<p><figure class="image-caption"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516193520030.png"
+                      alt="image-20230516193520030"
+                ><figcaption>image-20230516193520030</figcaption></figure></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>进程</tag>
+        <tag>优先级</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux系统服务</title>
-    <url>/hudiBlog/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/</url>
+    <url>/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<h4 id="Linux系统服务"><a href="#Linux系统服务" class="headerlink" title="Linux系统服务"></a>Linux系统服务</h4><h5 id="一、服务的简介与分类"><a href="#一、服务的简介与分类" class="headerlink" title="一、服务的简介与分类"></a>一、服务的简介与分类</h5><p><figure class="image-caption"><img  
                      lazyload
                      src="/images/loading.svg"
@@ -474,7 +474,7 @@
   </entry>
   <entry>
     <title>BOSS直聘数据分析docker部署笔记</title>
-    <url>/hudiBlog/2024/10/19/docker%E7%AC%94%E8%AE%B0/</url>
+    <url>/2024/10/19/docker%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[
   <div class="note-large default">
     <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
@@ -541,7 +541,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/hudiBlog/2024/10/19/hello-world/</url>
+    <url>/2024/10/19/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
 
@@ -562,7 +562,7 @@
   </entry>
   <entry>
     <title>Flume工具</title>
-    <url>/hudiBlog/2024/10/19/flume/</url>
+    <url>/2024/10/19/flume/</url>
     <content><![CDATA[<h4 id="flume"><a href="#flume" class="headerlink" title="flume"></a>flume</h4><h5 id="1、flume概述："><a href="#1、flume概述：" class="headerlink" title="1、flume概述："></a>1、flume概述：</h5><ol>
 <li><p>定义：Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统。Flume基于流式架构，灵活简单。</p>
 </li>
@@ -782,7 +782,7 @@
   </entry>
   <entry>
     <title>Oracle笔记</title>
-    <url>/hudiBlog/2024/10/19/Oracle%E7%AC%94%E8%AE%B0/</url>
+    <url>/2024/10/19/Oracle%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="PL-SQL-developer安装"><a href="#PL-SQL-developer安装" class="headerlink" title="PL&#x2F;SQL developer安装"></a>PL&#x2F;SQL developer安装</h2><p>1、安装PL&#x2F;SQL developer程序，安装目录不要出现中文。</p>
 <p>2、配置客户端路径：点击PL&#x2F;SQL developer界面的Configure-&gt;Preferences-&gt;oracle配置的connect属性配置。，和</p>
 <p>指定Oracle Home 路径：D:\BaiduNetdiskDownload\client\instantclient_12_1</p>

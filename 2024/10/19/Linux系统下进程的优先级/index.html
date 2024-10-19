@@ -13,7 +13,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://blog.suxichuan.icu/hudiBlog/2024/10/19/linux系统下进程的优先级/"/>
+    <link rel="canonical" href="https://blog.suxichuan.icu/2024/10/19/linux系统下进程的优先级/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -21,7 +21,7 @@
         <meta name="description" content="Linux系统下进程的优先级​		Linux操作系统是一个多用户多任务的操作系统，处理机的分配是通过时间片轮转的方式进行的。当CPU的负载过高时，进程的优先级就会起作用。 1、查看进程的优先级PR 数值越小优先级越高 NI 数值越小优先级越高，可以通过手动设置NI的数值，改变PR的数值。NI的范围是-20~19 使用top 命令查看进程的优先级 image-20230516181620532 2、">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux系统下进程的优先级">
-<meta property="og:url" content="https://blog.suxichuan.icu/hudiBlog/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/index.html">
+<meta property="og:url" content="https://blog.suxichuan.icu/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/index.html">
 <meta property="og:site_name" content="短巷与雨">
 <meta property="og:description" content="Linux系统下进程的优先级​		Linux操作系统是一个多用户多任务的操作系统，处理机的分配是通过时间片轮转的方式进行的。当CPU的负载过高时，进程的优先级就会起作用。 1、查看进程的优先级PR 数值越小优先级越高 NI 数值越小优先级越高，可以通过手动设置NI的数值，改变PR的数值。NI的范围是-20~19 使用top 命令查看进程的优先级 image-20230516181620532 2、">
 <meta property="og:locale" content="zh_CN">
@@ -41,10 +41,10 @@
     
     
     <!--- Icon Part-->
-    <link rel="icon" type="image/png" href="/hudiBlog/images/favi.png" sizes="192x192">
-    <link rel="apple-touch-icon" sizes="180x180" href="/hudiBlog/images/favi.png">
+    <link rel="icon" type="image/png" href="/images/favi.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favi.png">
     <meta name="theme-color" content="#A31F34">
-    <link rel="shortcut icon" href="/hudiBlog/images/favi.png">
+    <link rel="shortcut icon" href="/images/favi.png">
     <!--- Page Info-->
     
     <title>
@@ -55,27 +55,27 @@
     </title>
 
     
-<link rel="stylesheet" href="/hudiBlog/fonts/Chillax/chillax.css">
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
 
 
     <!--- Inject Part-->
     
 
     
-<link rel="stylesheet" href="/hudiBlog/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
 
     
         
-<link rel="stylesheet" href="/hudiBlog/assets/build/styles.css">
+<link rel="stylesheet" href="/assets/build/styles.css">
 
     
 
     
-<link rel="stylesheet" href="/hudiBlog/fonts/GeistMono/geist-mono.css">
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
 
     
-<link rel="stylesheet" href="/hudiBlog/fonts/Geist/geist.css">
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
 
     <!--- Font Part-->
     
@@ -87,12 +87,12 @@
     
     
         
-<script src="/hudiBlog/js/libs/anime.min.js"></script>
+<script src="/js/libs/anime.min.js"></script>
 
     
 
     <script id="hexo-configurations">
-    window.config = {"hostname":"blog.suxichuan.icu","root":"/hudiBlog/","language":"zh-CN","path":"search.xml"};
+    window.config = {"hostname":"blog.suxichuan.icu","root":"/","language":"zh-CN","path":"search.xml"};
     window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":true,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":true,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"atom-one-light","dark":"monokai-sublime"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":true,"title":"推荐阅读","limit":5,"mobile_limit":2,"placeholder":"/hudiBlog/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":true,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"Hi！朋友,别来无恙"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"短巷与雨","subtitle":{"text":["Loading..."],"hitokoto":{"enable":true,"show_author":true,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"center","links":{"github":"https://github.com/suxichuan","instagram":null,"zhihu":null,"twitter":null,"email":"71478355@qq.com","weibo":"https://weibo.com/u/5081430302"},"qrs":{"weixin":"/images/wx_qr.jpg"}}},"plugins":{"feed":{"enable":true},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.7.1","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"About":"/about","Friends":"/links/","Github":"https://github.com/suxichuan"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":3,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"right","first_item":"info","announcement":"这个世界岁不完美，但我们任然可以治愈自己。","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Shuoshuo":{"path":"/shuoshuo","icon":"fa-shuoshuo fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/10/18 10:00:00"};
     window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
     window.data = {"masonry":true};
@@ -100,26 +100,26 @@
 
     <!--- Fontawesome Part-->
     
-<link rel="stylesheet" href="/hudiBlog/fontawesome/fontawesome.min.css">
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
 
     
-<link rel="stylesheet" href="/hudiBlog/fontawesome/brands.min.css">
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
 
     
-<link rel="stylesheet" href="/hudiBlog/fontawesome/solid.min.css">
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
 
     
-<link rel="stylesheet" href="/hudiBlog/fontawesome/regular.min.css">
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
 
     
     
         
-<link rel="stylesheet" href="/hudiBlog/fontawesome/light.min.css">
+<link rel="stylesheet" href="/fontawesome/light.min.css">
 
     
     
     
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/hudiBlog/atom.xml" title="短巷与雨" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="短巷与雨" type="application/atom+xml">
 </head>
 
 
@@ -297,7 +297,7 @@
     <div class="navbar-content ">
         <div class="left">
             
-            <a class="logo-title" href="/hudiBlog/">
+            <a class="logo-title" href="/">
                 
                 短巷与雨
                 
@@ -315,7 +315,7 @@
                             <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class=""
-                                   href="/hudiBlog/"
+                                   href="/"
                                         >
                                     <i class="fa-regular fa-house fa-fw"></i>
                                     首页
@@ -332,7 +332,7 @@
                             <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class=""
-                                   href="/hudiBlog/archives"
+                                   href="/archives"
                                         >
                                     <i class="fa-regular fa-archive fa-fw"></i>
                                     归档
@@ -349,7 +349,7 @@
                             <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class=""
-                                   href="/hudiBlog/categories"
+                                   href="/categories"
                                         >
                                     <i class="fa-regular fa-folder fa-fw"></i>
                                     分类
@@ -378,13 +378,13 @@
                                     <ul class="sub-menu">
                                         
                                             <li>
-                                                <a href="/hudiBlog/about">
+                                                <a href="/about">
                                                     关于
                                                 </a>
                                             </li>
                                         
                                             <li>
-                                                <a href="/hudiBlog/links/">
+                                                <a href="/links/">
                                                     友情链接
                                                 </a>
                                             </li>
@@ -429,7 +429,7 @@
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/hudiBlog/"
+                           href="/"
                         >
                             <span>
                                 首页
@@ -449,7 +449,7 @@
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/hudiBlog/archives"
+                           href="/archives"
                         >
                             <span>
                                 归档
@@ -469,7 +469,7 @@
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/hudiBlog/categories"
+                           href="/categories"
                         >
                             <span>
                                 分类
@@ -505,12 +505,12 @@
                                 
                                     <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
                                         <a class=" text-third-text-color text-xl"
-                                           href="/hudiBlog/about">关于</a>
+                                           href="/about">关于</a>
                                     </div>
                                 
                                     <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
                                         <a class=" text-third-text-color text-xl"
-                                           href="/hudiBlog/links/">友情链接</a>
+                                           href="/links/">友情链接</a>
                                     </div>
                                 
                                     <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
@@ -530,7 +530,7 @@
                     
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
-                           href="/hudiBlog/tags"
+                           href="/tags"
                         >
                             <span>Tags</span>
                             <i class="fa-regular fa-tags fa-sm fa-fw"></i>
@@ -541,7 +541,7 @@
                     
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
-                           href="/hudiBlog/shuoshuo"
+                           href="/shuoshuo"
                         >
                             <span>Shuoshuo</span>
                             <i class="fa-shuoshuo fa-folder fa-sm fa-fw"></i>
@@ -552,15 +552,15 @@
         </ul>
 
         <div class="statistics flex justify-around my-2.5">
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/hudiBlog/tags">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
         <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">23</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/hudiBlog/categories">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
         <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/hudiBlog/archives">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
         <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">9</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
@@ -595,7 +595,7 @@
         
             <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
                 <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
-                    <img src="/hudiBlog/images/wx_avator.jpg">
+                    <img src="/images/wx_avator.jpg">
                 </div>
                 <div class="info flex flex-col justify-between">
                     <div class="author flex items-center">
@@ -630,7 +630,7 @@
                     
                         
                         <li>
-                            <a href="/hudiBlog/categories/Linux/">Linux</a>&nbsp;
+                            <a href="/categories/Linux/">Linux</a>&nbsp;
                         </li>
                     
                     
@@ -644,11 +644,11 @@
             <ul>
                 
                     <li>
-                        <a href="/hudiBlog/tags/%E8%BF%9B%E7%A8%8B/">进程</a>&nbsp;
+                        <a href="/tags/%E8%BF%9B%E7%A8%8B/">进程</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/hudiBlog/tags/%E4%BC%98%E5%85%88%E7%BA%A7/">优先级</a>&nbsp;
+                        | <a href="/tags/%E4%BC%98%E5%85%88%E7%BA%A7/">优先级</a>&nbsp;
                     </li>
                 
             </ul>
@@ -749,7 +749,7 @@
             </li>
         
         <li>
-            <strong>链接:</strong> https://blog.suxichuan.icu/hudiBlog/2024/10/19/Linux系统下进程的优先级/
+            <strong>链接:</strong> https://blog.suxichuan.icu/2024/10/19/Linux系统下进程的优先级/
         </li>
         <li>
             <strong>
@@ -771,11 +771,11 @@
             <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
                 
                     <li class="tag-item mx-0.5">
-                        <a href="/hudiBlog/tags/%E8%BF%9B%E7%A8%8B/">#进程</a>&nbsp;
+                        <a href="/tags/%E8%BF%9B%E7%A8%8B/">#进程</a>&nbsp;
                     </li>
                 
                     <li class="tag-item mx-0.5">
-                        <a href="/hudiBlog/tags/%E4%BC%98%E5%85%88%E7%BA%A7/">#优先级</a>&nbsp;
+                        <a href="/tags/%E4%BC%98%E5%85%88%E7%BA%A7/">#优先级</a>&nbsp;
                     </li>
                 
             </ul>
@@ -787,19 +787,19 @@
     <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
      <i aria-hidden="true"></i><span>推荐阅读</span>
     </div>
-    <div class="recommended-article-group"><a class="recommended-article-item" href="/hudiBlog/2024/10/19/Linux磁盘管理笔记/" title="Linux磁盘管理笔记" rel="bookmark">
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/2024/10/19/Linux磁盘管理笔记/" title="Linux磁盘管理笔记" rel="bookmark">
   <img src="/hudiBlog/images/wallhaven-wqery6-light.webp" alt="Linux磁盘管理笔记" class="!max-w-none">
   <span class="title">Linux磁盘管理笔记</span>
-</a><a class="recommended-article-item" href="/hudiBlog/2024/10/19/Oracle笔记/" title="Oracle笔记" rel="bookmark">
+</a><a class="recommended-article-item" href="/2024/10/19/Oracle笔记/" title="Oracle笔记" rel="bookmark">
   <img src="https://img0.baidu.com/it/u=1891049940,1380402260&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=100" alt="Oracle笔记" class="!max-w-none">
   <span class="title">Oracle笔记</span>
-</a><a class="recommended-article-item" href="/hudiBlog/2024/10/19/Linux操作系统Nginx/" title="Linux操作系统Nginx" rel="bookmark">
+</a><a class="recommended-article-item" href="/2024/10/19/Linux操作系统Nginx/" title="Linux操作系统Nginx" rel="bookmark">
   <img src="/hudiBlog/images/wallhaven-wqery6-light.webp" alt="Linux操作系统Nginx" class="!max-w-none">
   <span class="title">Linux操作系统Nginx</span>
-</a><a class="recommended-article-item" href="/hudiBlog/2024/10/19/Linux权限管理/" title="Linux权限管理" rel="bookmark">
+</a><a class="recommended-article-item" href="/2024/10/19/Linux权限管理/" title="Linux权限管理" rel="bookmark">
   <img src="/hudiBlog/images/wallhaven-wqery6-light.webp" alt="Linux权限管理" class="!max-w-none">
   <span class="title">Linux权限管理</span>
-</a><a class="recommended-article-item" href="/hudiBlog/2024/10/19/Linux系统服务/" title="Linux系统服务" rel="bookmark">
+</a><a class="recommended-article-item" href="/2024/10/19/Linux系统服务/" title="Linux系统服务" rel="bookmark">
   <img src="/hudiBlog/images/wallhaven-wqery6-light.webp" alt="Linux系统服务" class="!max-w-none">
   <span class="title">Linux系统服务</span>
 </a></div>
@@ -808,10 +808,10 @@
    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
      <i aria-hidden="true"></i><span>推荐阅读</span>
    </div>
-   <div class="recommended-article-group"><a class="recommended-article-item" href="/hudiBlog/2024/10/19/Linux磁盘管理笔记/" title="Linux磁盘管理笔记" rel="bookmark">
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/2024/10/19/Linux磁盘管理笔记/" title="Linux磁盘管理笔记" rel="bookmark">
   <img src="/hudiBlog/images/wallhaven-wqery6-light.webp" alt="Linux磁盘管理笔记" class="!max-w-none">
   <span class="title">Linux磁盘管理笔记</span>
-</a><a class="recommended-article-item" href="/hudiBlog/2024/10/19/Oracle笔记/" title="Oracle笔记" rel="bookmark">
+</a><a class="recommended-article-item" href="/2024/10/19/Oracle笔记/" title="Oracle笔记" rel="bookmark">
   <img src="https://img0.baidu.com/it/u=1891049940,1380402260&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=100" alt="Oracle笔记" class="!max-w-none">
   <span class="title">Oracle笔记</span>
 </a></div>
@@ -824,7 +824,7 @@
                     <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="prev"
                         rel="prev"
-                        href="/hudiBlog/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/"
+                        href="/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/"
                         >
                             <span class="left arrow-icon flex justify-center items-center">
                                 <i class="fa-solid fa-chevron-left"></i>
@@ -840,7 +840,7 @@
                     <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="next"
                         rel="next"
-                        href="/hudiBlog/2024/10/19/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E7%AC%94%E8%AE%B0/"
+                        href="/2024/10/19/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E7%AC%94%E8%AE%B0/"
                         >
                             <span class="title flex justify-center items-center">
                                 <span class="post-nav-title-item">Linux磁盘管理笔记</span>
@@ -869,7 +869,7 @@
             
     <div id="waline"></div>
     <script type="module" data-swup-reload-script>
-      import { init } from '/hudiBlog/js/libs/waline.mjs';
+      import { init } from '/js/libs/waline.mjs';
 
       function loadWaline() {
         init({
@@ -935,7 +935,7 @@
               <span>2024</span>
               -
             
-            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/hudiBlog/">Hudi</a>
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Hudi</a>
         </div>
 
         
@@ -1120,17 +1120,17 @@
 
 
     
-<script src="/hudiBlog/js/libs/Swup.min.js"></script>
+<script src="/js/libs/Swup.min.js"></script>
 
-<script src="/hudiBlog/js/libs/SwupSlideTheme.min.js"></script>
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
 
-<script src="/hudiBlog/js/libs/SwupScriptsPlugin.min.js"></script>
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
 
-<script src="/hudiBlog/js/libs/SwupProgressPlugin.min.js"></script>
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
 
-<script src="/hudiBlog/js/libs/SwupScrollPlugin.min.js"></script>
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
 
-<script src="/hudiBlog/js/libs/SwupPreloadPlugin.min.js"></script>
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
 
 <script>
     const swup = new Swup({
@@ -1157,57 +1157,57 @@
 
 
 
-<script src="/hudiBlog/js/tools/imageViewer.js" type="module"></script>
+<script src="/js/tools/imageViewer.js" type="module"></script>
 
-<script src="/hudiBlog/js/utils.js" type="module"></script>
+<script src="/js/utils.js" type="module"></script>
 
-<script src="/hudiBlog/js/main.js" type="module"></script>
+<script src="/js/main.js" type="module"></script>
 
-<script src="/hudiBlog/js/layouts/navbarShrink.js" type="module"></script>
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
 
-<script src="/hudiBlog/js/tools/scrollTopBottom.js" type="module"></script>
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
 
-<script src="/hudiBlog/js/tools/lightDarkSwitch.js" type="module"></script>
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
 
-<script src="/hudiBlog/js/layouts/categoryList.js" type="module"></script>
-
-
-
-    
-<script src="/hudiBlog/js/tools/localSearch.js" type="module"></script>
-
+<script src="/js/layouts/categoryList.js" type="module"></script>
 
 
 
     
-<script src="/hudiBlog/js/tools/codeBlock.js" type="module"></script>
+<script src="/js/tools/localSearch.js" type="module"></script>
 
 
 
 
     
-<script src="/hudiBlog/js/layouts/lazyload.js" type="module"></script>
+<script src="/js/tools/codeBlock.js" type="module"></script>
 
 
 
 
     
-<script src="/hudiBlog/js/tools/runtime.js"></script>
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
 
     
-<script src="/hudiBlog/js/libs/odometer.min.js"></script>
+<script src="/js/tools/runtime.js"></script>
 
     
-<link rel="stylesheet" href="/hudiBlog/assets/odometer-theme-minimal.css">
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
 
 
 
 
   
-<script src="/hudiBlog/js/libs/Typed.min.js"></script>
+<script src="/js/libs/Typed.min.js"></script>
 
   
-<script src="/hudiBlog/js/plugins/typed.js" type="module"></script>
+<script src="/js/plugins/typed.js" type="module"></script>
 
 
 
@@ -1215,10 +1215,10 @@
 
 
     
-<script src="/hudiBlog/js/libs/minimasonry.min.js"></script>
+<script src="/js/libs/minimasonry.min.js"></script>
 
     
-<script src="/hudiBlog/js/plugins/masonry.js" type="module"></script>
+<script src="/js/plugins/masonry.js" type="module"></script>
 
 
 
@@ -1227,11 +1227,11 @@
 <div class="post-scripts" data-swup-reload-script>
     
         
-<script src="/hudiBlog/js/tools/tocToggle.js" type="module"></script>
+<script src="/js/tools/tocToggle.js" type="module"></script>
 
-<script src="/hudiBlog/js/layouts/toc.js" type="module"></script>
+<script src="/js/layouts/toc.js" type="module"></script>
 
-<script src="/hudiBlog/js/plugins/tabs.js" type="module"></script>
+<script src="/js/plugins/tabs.js" type="module"></script>
 
     
 </div>
