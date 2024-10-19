@@ -165,6 +165,67 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux系统下进程的优先级</title>
+    <url>/hudiBlog/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</url>
+    <content><![CDATA[<h3 id="Linux系统下进程的优先级"><a href="#Linux系统下进程的优先级" class="headerlink" title="Linux系统下进程的优先级"></a>Linux系统下进程的优先级</h3><p>​		Linux操作系统是一个多用户多任务的操作系统，处理机的分配是通过时间片轮转的方式进行的。当CPU的负载过高时，进程的优先级就会起作用。</p>
+<h5 id="1、查看进程的优先级"><a href="#1、查看进程的优先级" class="headerlink" title="1、查看进程的优先级"></a>1、查看进程的优先级</h5><p>PR 数值越小优先级越高</p>
+<p>NI 数值越小优先级越高，可以通过手动设置NI的数值，改变PR的数值。NI的范围是-20~19</p>
+<p>使用top 命令查看进程的优先级</p>
+<p><figure class="image-caption"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516181620532.png"
+                      alt="image-20230516181620532"
+                ><figcaption>image-20230516181620532</figcaption></figure></p>
+<h5 id="2、调整进程的优先级"><a href="#2、调整进程的优先级" class="headerlink" title="2、调整进程的优先级"></a>2、调整进程的优先级</h5><h6 id="①可以使用一下命令查看进程的PID值"><a href="#①可以使用一下命令查看进程的PID值" class="headerlink" title="①可以使用一下命令查看进程的PID值"></a>①可以使用一下命令查看进程的PID值</h6><div class="highlight-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ps</span> <span class="literal">-ef</span> </span><br><span class="line"><span class="built_in">ps</span> aux </span><br><span class="line">top <span class="literal">-bn</span> <span class="number">1</span></span><br></pre></td></tr></table></figure></div>
+
+<h6 id="②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值"><a href="#②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值" class="headerlink" title="②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值"></a>②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值</h6><p><figure class="image-caption"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516182533084.png"
+                      alt="image-20230516182533084"
+                ><figcaption>image-20230516182533084</figcaption></figure></p>
+<p><figure class="image-caption"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516182913127.png"
+                      alt="image-20230516182913127"
+                ><figcaption>image-20230516182913127</figcaption></figure></p>
+<p><figure class="image-caption"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516182947261.png"
+                      alt="image-20230516182947261"
+                ><figcaption>image-20230516182947261</figcaption></figure></p>
+<h5 id="3、使用renice命令设置进程的优先级"><a href="#3、使用renice命令设置进程的优先级" class="headerlink" title="3、使用renice命令设置进程的优先级"></a>3、使用renice命令设置进程的优先级</h5><div class="highlight-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line">语法：renice <span class="built_in">NI</span>优先级值 PID</span><br></pre></td></tr></table></figure></div>
+
+<p><figure class="image-caption"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516193023131.png"
+                      alt="image-20230516193023131"
+                ><figcaption>image-20230516193023131</figcaption></figure></p>
+<h5 id="4、使用nice命令来启动程序并设置进程测优先级"><a href="#4、使用nice命令来启动程序并设置进程测优先级" class="headerlink" title="4、使用nice命令来启动程序并设置进程测优先级"></a>4、使用nice命令来启动程序并设置进程测优先级</h5><div class="highlight-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line">语法：nice <span class="built_in">NI</span>优先级值 进程名称</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>nice命令只能调整没有运行的程序优先级</p>
+</blockquote>
+<p><figure class="image-caption"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516193520030.png"
+                      alt="image-20230516193520030"
+                ><figcaption>image-20230516193520030</figcaption></figure></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>进程</tag>
+        <tag>优先级</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux磁盘管理笔记</title>
     <url>/hudiBlog/2024/10/19/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h4 id="Linux磁盘管理笔记"><a href="#Linux磁盘管理笔记" class="headerlink" title="Linux磁盘管理笔记"></a>Linux磁盘管理笔记</h4><h5 id="1、基本常识"><a href="#1、基本常识" class="headerlink" title="1、基本常识"></a>1、基本常识</h5><p>磁盘</p>
@@ -356,67 +417,6 @@
       </categories>
       <tags>
         <tag>磁盘管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux系统下进程的优先级</title>
-    <url>/hudiBlog/2024/10/19/Linux%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</url>
-    <content><![CDATA[<h3 id="Linux系统下进程的优先级"><a href="#Linux系统下进程的优先级" class="headerlink" title="Linux系统下进程的优先级"></a>Linux系统下进程的优先级</h3><p>​		Linux操作系统是一个多用户多任务的操作系统，处理机的分配是通过时间片轮转的方式进行的。当CPU的负载过高时，进程的优先级就会起作用。</p>
-<h5 id="1、查看进程的优先级"><a href="#1、查看进程的优先级" class="headerlink" title="1、查看进程的优先级"></a>1、查看进程的优先级</h5><p>PR 数值越小优先级越高</p>
-<p>NI 数值越小优先级越高，可以通过手动设置NI的数值，改变PR的数值。NI的范围是-20~19</p>
-<p>使用top 命令查看进程的优先级</p>
-<p><figure class="image-caption"><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516181620532.png"
-                      alt="image-20230516181620532"
-                ><figcaption>image-20230516181620532</figcaption></figure></p>
-<h5 id="2、调整进程的优先级"><a href="#2、调整进程的优先级" class="headerlink" title="2、调整进程的优先级"></a>2、调整进程的优先级</h5><h6 id="①可以使用一下命令查看进程的PID值"><a href="#①可以使用一下命令查看进程的PID值" class="headerlink" title="①可以使用一下命令查看进程的PID值"></a>①可以使用一下命令查看进程的PID值</h6><div class="highlight-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ps</span> <span class="literal">-ef</span> </span><br><span class="line"><span class="built_in">ps</span> aux </span><br><span class="line">top <span class="literal">-bn</span> <span class="number">1</span></span><br></pre></td></tr></table></figure></div>
-
-<h6 id="②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值"><a href="#②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值" class="headerlink" title="②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值"></a>②使用top进入动态显示的进程列表输入r，在输入要调整的进程优先级的PID值，接着继续输入要调整的NI值</h6><p><figure class="image-caption"><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516182533084.png"
-                      alt="image-20230516182533084"
-                ><figcaption>image-20230516182533084</figcaption></figure></p>
-<p><figure class="image-caption"><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516182913127.png"
-                      alt="image-20230516182913127"
-                ><figcaption>image-20230516182913127</figcaption></figure></p>
-<p><figure class="image-caption"><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516182947261.png"
-                      alt="image-20230516182947261"
-                ><figcaption>image-20230516182947261</figcaption></figure></p>
-<h5 id="3、使用renice命令设置进程的优先级"><a href="#3、使用renice命令设置进程的优先级" class="headerlink" title="3、使用renice命令设置进程的优先级"></a>3、使用renice命令设置进程的优先级</h5><div class="highlight-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line">语法：renice <span class="built_in">NI</span>优先级值 PID</span><br></pre></td></tr></table></figure></div>
-
-<p><figure class="image-caption"><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516193023131.png"
-                      alt="image-20230516193023131"
-                ><figcaption>image-20230516193023131</figcaption></figure></p>
-<h5 id="4、使用nice命令来启动程序并设置进程测优先级"><a href="#4、使用nice命令来启动程序并设置进程测优先级" class="headerlink" title="4、使用nice命令来启动程序并设置进程测优先级"></a>4、使用nice命令来启动程序并设置进程测优先级</h5><div class="highlight-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line">语法：nice <span class="built_in">NI</span>优先级值 进程名称</span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>nice命令只能调整没有运行的程序优先级</p>
-</blockquote>
-<p><figure class="image-caption"><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="C:\Users\71478\AppData\Roaming\Typora\typora-user-images\image-20230516193520030.png"
-                      alt="image-20230516193520030"
-                ><figcaption>image-20230516193520030</figcaption></figure></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>进程</tag>
-        <tag>优先级</tag>
       </tags>
   </entry>
   <entry>
